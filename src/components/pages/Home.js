@@ -10,7 +10,7 @@ import { Container } from '@material-ui/core';
 
 function Home() {
 	return (
-		<>
+		<div style={{ overflow: 'hidden' }}>
 			<HeroSection />
 			<Cards />
 
@@ -18,7 +18,7 @@ function Home() {
 			<Capability />
 
 			<Footer />
-		</>
+		</div>
 	);
 }
 

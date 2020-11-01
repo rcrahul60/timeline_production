@@ -1,23 +1,29 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
-import {BrowserRouter as Router,Switch,Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/pages/Home';
 import Services from './components/pages/Services';
 import Contact from './components/pages/Contact';
+import { makeStyles } from '@material-ui/core';
+
+
+
+const useStyles = makeStyles({});
 
 function App() {
+  const classes = useStyles();
   return (
-    <>
-     <Router>
-     <Navbar/>
-     <Switch>
-       <Route path="/" exact component={Home}/>
-       <Route path="/services" component={Services}/>
-       <Route path="/contact" component={Contact} />
-      </Switch>
-     </Router>
-    </>
+    <div className={classes.container}>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact from="/" render={props => <Home {...props} />} />
+          <Route exact from="/services" render={props => <Services {...props} />} />
+          <Route exact from="/contact" render={props => <Contact {...props} />} />
+        </Switch>
+      </Router>
+    </div>
   );
 }
 

@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         // overflow: 'hidden'
         // display: 'block'
+        // backgroundColor: '#fff'
 
     },
     menuButton: {
@@ -34,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flex: 1,
         justifyContent: "flex-end"
+    },
+    appBar: {
+        backgroundColor: '#f0f0f0'
     }
 }));
 
@@ -73,63 +77,15 @@ const Navbar = props => {
             menuTitle: "Contact",
             pageURL: "/contact"
         },
-
+        {
+            menuTitle: "How we work",
+            pageURL: "/work"
+        },
     ];
-
-    // const [click, setClick] = useState(false);
-    // const [button, setButton] = useState(true);
-
-    // const handleClick overflow: "hidden" = () => setClick(!click);
-    // const closeMobileMenu = () => setClick(false);
-
-    // const showButton = () => {
-    //     if (window.innerHeight <= 960) {
-    //         setButton(false);
-    //     } else {
-    //         setButton(true)
-    //     }
-    // };
-
-    // useEffect(() => {
-    //     showButton();
-    // }, []);
-
-
-    // window.addEventListener('resize', showButton);
     return (
-        // <nav className="navbar">
-        //     <div className="navbar-container">
-        //         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-        //             <img src="image/logo.png" width="150px" height="50px" />
-        //         </Link>
-        //         <div className="menu-icon" onClick={handleClick}>
-        //             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-        //         </div>
-        //         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-        //             <li className="nav-item">
-        //                 <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-        //                     Home
-        //                 </Link>
-        //             </li>
-        //             {/* <li className="nav-item">
-        //                 <Link to="/services" className="nav-links" onClick={closeMobileMenu}>
-        //                     Services
-        //                 </Link>
-        //             </li> */}
-        //             <li className="nav-item">
-        //                 <Link to="/contact" className="nav-links" onClick={closeMobileMenu}>
-        //                     Contact
-        //                 </Link>
-        //             </li>
-        //         </ul>
-        //         {/* {button && <Button buttonStyle='btn--outline'>SignUp</Button>} */}
-        //     </div>
-        // </nav>
         <div className={classes.root}>
-            <AppBar position="static">
+            <AppBar position="static" className={classes.appBar}>
                 <Toolbar>
-
-
                     <Typography className={classes.title} onClick={() => handleButtonClick("/")} >
                         <img src="image/logo.png" width="150px" height="50px" />
                     </Typography>
@@ -174,22 +130,29 @@ const Navbar = props => {
                                 <Button
                                     // variant="contained"
                                     //color="primary"
-                                    style={{ color: 'white' }}
+                                    style={{ color: 'black' }}
                                     onClick={() => handleButtonClick("/")}
                                 >
                                     HOME
               </Button>
                                 <Button
                                     //variant="contained"
-                                    style={{ color: 'white' }}
+                                    style={{ color: 'black' }}
                                     onClick={() => handleButtonClick("/services")}
                                 >
                                     Services
               </Button>
                                 <Button
                                     //variant="contained"
+                                    style={{ color: 'black' }}
+                                    onClick={() => handleButtonClick("/work")}
+                                >
+                                    How we work
+              </Button>
+                                <Button
+                                    //variant="contained"
                                     // color="primary"
-                                    style={{ color: 'white' }}
+                                    style={{ color: 'black' }}
                                     onClick={() => handleButtonClick("/contact")}
                                 >
                                     Contact
@@ -197,15 +160,6 @@ const Navbar = props => {
                             </div>
                         )}
                 </Toolbar>
-                {/* <Tabs>
-                    <IconButton edge="start" className={classes.title} color="inherit" aria-label="menu">
-                        <img src="image/logo.png" width="150px" height="50px" />
-                    </IconButton>
-                    <Tab label="&nbsp;Home&nbsp;" />
-                    <Tab label="&nbsp;Services&nbsp;" />
-                    <Tab label="&nbsp;Work Process&nbsp;" />
-                    <Tab label="&nbsp;Contact&nbsp;" />
-                </Tabs> */}
             </AppBar>
         </div >
     );

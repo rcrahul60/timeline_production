@@ -6,6 +6,7 @@ import Home from './components/pages/Home';
 import Services from './components/pages/Services';
 import Contact from './components/pages/Contact';
 import { makeStyles } from '@material-ui/core';
+import WorkProcess from './components/pages/WorkProcess';
 
 
 
@@ -21,6 +22,8 @@ function App() {
           <Route exact from="/" render={props => <Home {...props} />} />
           <Route exact from="/services" render={props => <Services {...props} />} />
           <Route exact from="/contact" render={props => <Contact {...props} />} />
+          <Route exact from="/work" render={props => <WorkProcess {...props} />} />
+
         </Switch>
       </Router>
     </div>

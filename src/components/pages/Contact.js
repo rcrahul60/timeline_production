@@ -6,7 +6,7 @@ import { Typography, Grid, Container, List, ListItem, ListItemText } from '@mate
 import { makeStyles, createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import ListItemIcon from "@material-ui/core/ListItemIcon";
-import { Map, Marker, GoogleApiWrapper } from 'google-maps-react'
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 
 
 const useStyles = makeStyles({
@@ -28,85 +28,91 @@ let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
 
 
-function Contact() {
-     const classes = useStyles;
-     const [dense, setDense] = React.useState(false);
-     return (
+class Contact extends React.Component {
+
+     render() {
+
+          const classes = useStyles;
+          return (
 
 
 
 
-          <div className="contact_container">
-               <Grid container direction="row"
-                    justify="center"
-                    alignItems="center"
-                    style={{
-                         background: '#f2f2f2',
-                    }}
-               >
-                    {/* <Grid container>
-                         <Map google={this.props.google} />
-                    </Grid> */}
-                    <Grid item xs={12} sm={6}>
-                         <Grid container justify="center" direction="column" alignItems="center">
-                              <Grid item><Typography gutterBottom > Office Address:</Typography></Grid>
-                              <Grid item>
-
-                                   <Typography gutterBottom  >C-689, Sarita Vihar, New Delhi 110076</Typography>
-
-                              </Grid>
-                              <Grid item>
-                                   <List dense={dense} style={{ alignItems: 'center' }}>
-                                        <ListItem >
-                                             <ListItemIcon>
-                                                  <ArrowRightIcon />
-                                             </ListItemIcon>
-                                             <ListItemText>
-
-                                                  <Typography>Get Project's Budget Estimate</Typography>
-                                             </ListItemText>
-                                        </ListItem>
-                                        <ListItem>
-                                             <ListItemIcon>
-                                                  <ArrowRightIcon />
-                                             </ListItemIcon>
-                                             <ListItemText>
-                                                  <Typography >Communicate With Professional Team</Typography>
-                                             </ListItemText>
-                                        </ListItem>
-                                   </List>
-                              </Grid>
-                              <Grid item> <Typography gutterBottom> Phone Number: 9999004262</Typography></Grid>
+               <div className="contact_container">
+                    <Grid container direction="row"
+                         justify="center"
+                         alignItems="center"
+                         style={{
+                              background: '#f2f2f2',
+                         }}
+                    >
+                         <Grid>
+                              <img src="image/contact2.jpg" />
                          </Grid>
+                         {/* <Grid >
+
+                              <Map google={this.props.google} />
+                         </Grid> */}
+                         <Grid item xs={12} sm={6}>
+                              <Grid container justify="center" direction="column" alignItems="center">
+                                   <Grid item><Typography gutterBottom > Office Address:</Typography></Grid>
+                                   <Grid item>
+
+                                        <Typography gutterBottom  >C-689, Sarita Vihar, New Delhi 110076</Typography>
+
+                                   </Grid>
+                                   <Grid item>
+                                        <List style={{ alignItems: 'center' }}>
+                                             <ListItem >
+                                                  <ListItemIcon>
+                                                       <ArrowRightIcon />
+                                                  </ListItemIcon>
+                                                  <ListItemText>
+
+                                                       <Typography>Get Project's Budget Estimate</Typography>
+                                                  </ListItemText>
+                                             </ListItem>
+                                             <ListItem>
+                                                  <ListItemIcon>
+                                                       <ArrowRightIcon />
+                                                  </ListItemIcon>
+                                                  <ListItemText>
+                                                       <Typography >Communicate With Professional Team</Typography>
+                                                  </ListItemText>
+                                             </ListItem>
+                                        </List>
+                                   </Grid>
+                                   <Grid item> <Typography gutterBottom> Phone Number: 9999004262</Typography></Grid>
+                              </Grid>
 
 
 
 
 
 
+                         </Grid>
+                         <Grid item xs={12} sm={6} style={{ backgroundColor: 'white' }}>
+                              <Container maxWidth="sm" style={{ padding: '30px' }}>
+
+
+                                   <ContactForm />
+
+                              </Container>
+                         </Grid>
                     </Grid>
-                    <Grid item xs={12} sm={6} style={{ backgroundColor: 'white' }}>
-                         <Container maxWidth="sm" style={{ padding: '30px' }}>
 
 
-                              <ContactForm />
+                    <Footer />
 
-                         </Container>
-                    </Grid>
-               </Grid>
-
-
-               <Footer />
-
-          </div>
+               </div>
 
 
 
-     );
+          );
+     }
 }
+export default GoogleApiWrapper({
+     apiKey: 'AIzaSyAviREIFjl0khoELxrKwp5-FqDNB_fS8nY'
+})(Contact);
 
-// export default GoogleApiWrapper({
-//      apiKey: 'AIzaSyAviREIFjl0khoELxrKwp5-FqDNB_fS8nY'
-// })(Contact);
-
-export default Contact;
+//export default Contact;

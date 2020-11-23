@@ -5,7 +5,7 @@ import { Grid } from '@material-ui/core';
 
 function HeroSection() {
     return (
-        <Grid container spacing={2} style={{ overflow: 'hidden', height: '85vh', alignContent: 'center' }}>
+        <Grid container spacing={2} style={{ overflow: 'hidden', alignContent: 'center' }}>
             <img src="/image/heroSection.jpg" />
         </Grid>
         // <div className='hero-container'>
